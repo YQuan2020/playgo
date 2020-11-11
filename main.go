@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+	fmt.Println("hello, welcome to my go play app")
 	http.HandleFunc("/", handler)
 	log.Fatal(http.ListenAndServe(":9002", nil))
 }
