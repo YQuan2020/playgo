@@ -2,16 +2,13 @@ pipeline {
     agent any
 
     stages {
-        stage('test') {
-            steps {
-                echo 'Hello World Test'
-            }
-        }
-        stage('build') {
-                 steps {
-                    sh 'ls'
-                    sh 'make build'
-                 }
+        stage('Build image') {
+             steps {
+              git credentialsId : 'github', url:'https://github.com/YQuan2020/test.git'
+                sh 'ls'
+                sh 'docker --version'
+                sh 'make build'
+             }
         }
     }
 }
